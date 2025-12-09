@@ -1,0 +1,8 @@
+database:
+  engine: postgres
+  backup_retention: 7      
+  publicly_accessible: false
+
+api_service:
+  instance_type: t3.small
+  replicas: 1

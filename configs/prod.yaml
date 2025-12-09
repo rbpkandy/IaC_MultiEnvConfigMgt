@@ -1,0 +1,5 @@
+database:
+  backup_retention: 30
+api_service:
+  instance_type: t3.large  #Larger EC2
+  replicas: 3 #Redundancy 
