@@ -40,7 +40,7 @@ def get_config_for_env(env: str) -> Dict[str, Any]:
     #Merge to base
     final_config = recursive_merge(base_config, env_config)   
     
-    #Add environment name for use in custom validators
+    #Add environment name for use in custom validators.
     final_config['environment'] = env 
     
     return final_config
