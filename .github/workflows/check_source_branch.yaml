@@ -1,0 +1,25 @@
+name: Check Source Branch for Main Merge
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  check-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if source branch is 'staging'
+        id: branch_check
+        run: |
+          SOURCE_BRANCH="${{ github.head_ref }}"
+          if [ "$SOURCE_BRANCH" != "staging" ]; then
+            echo "::error::Merging to 'main' is only allowed from the 'staging' branch. Source branch is '$SOURCE_BRANCH'."
+            exit 1
+          fi
+          echo "Source branch is 'staging'. Check passed."
+          #This step ensures a success status is reported
+          echo "success=true" >> $GITHUB_OUTPUT
+    #Name the check that will appear in the protection rules
+    name: staging-only-merge
