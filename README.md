@@ -34,7 +34,7 @@ Create the configuration directory structure
 Checks configuration against the schema and governance rules (e.g., prod safety checks).
 
 Validate all environments  
-- *python cmanager.py validate all*
+- *python manager.py validate all*
    
 Validate a specific environment (e.g., prod)  
 - *python manager.py validate prod*
